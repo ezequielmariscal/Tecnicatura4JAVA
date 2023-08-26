@@ -124,6 +124,7 @@ public class SistemaEstudiantesApp {
             }
             case 6 -> {
                 System.out.println("Finalizo el programa");
+                System.out.println("Hasta pronto gato");
                 salir = true;
             }
             default -> System.out.println("Opción no reconocida, ingrese otra opción");

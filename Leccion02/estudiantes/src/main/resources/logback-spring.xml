@@ -1,4 +1,4 @@
- <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
     <!-- Appender for logging within the console -->
@@ -18,7 +18,8 @@
             <!-- %logger{36} - Abbreviate -->
 
             <!-- [Date and time] [Thread] LoggingLevel : LoggerName - Logging message -->
-            <pattern>[%thread] %-5level: %logger - %msg%n</pattern>
+<!--            <pattern>[%thread] %-5level: %logger - %msg%n</pattern>-->
+            <pattern>%msg</pattern>
         </encoder>
     </appender>
 

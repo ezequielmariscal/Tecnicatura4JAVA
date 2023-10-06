@@ -34,7 +34,7 @@ public class EstudiantesApplication implements CommandLineRunner {
 
 	@Override // no es static es un metodo normal
 	public void run(String... args) throws Exception {
-		logger.info("Ejecutando el metodo run de Spring...");
+		logger.info(nl+"Ejecutando el metodo run de Spring..."+nl);
 
 	}
 }

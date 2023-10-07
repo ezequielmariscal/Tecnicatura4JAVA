@@ -15,10 +15,10 @@ import lombok.ToString;
 @NoArgsConstructor // genera construcror vacio
 @AllArgsConstructor // genera constructor con todos los argumentos
 @ToString
-public class Estudiante {
+public class Estudiantes2022 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // nuestra llave es autoincrementable en nuestra bd
-    private Integer idEstudiante;
+    private Integer idestudiantes2022;
     private String nombre;
     private String apellido;
     private String telefono;

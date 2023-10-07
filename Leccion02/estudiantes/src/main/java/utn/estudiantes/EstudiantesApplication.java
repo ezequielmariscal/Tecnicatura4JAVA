@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import utn.estudiantes.modelo.Estudiantes2022;
 import utn.estudiantes.servicio.EstudianteServicio;
 
+import java.util.List;
 import java.util.Scanner;
 
 // implementamos commandlinerinner para levantar nuestra fabrica de spring mediante el method run
@@ -44,10 +46,25 @@ public class EstudiantesApplication implements CommandLineRunner {
 			salir = ejecutarOpciones(consola);
 			logger.info(nl);
 		} // Fin ciclo while
+		
+	}
 
-		private void mostrarMenu(){
-			logger.info(nl);
-			logger.info("""
+	private boolean ejecutarOpciones(Scanner consola) {
+		var opcion = Integer.parseInt(consola.nextLine());
+		var salir = false;
+		switch (opcion){
+			case 1 -> {//Listar estudiantes
+				logger.info(nl+"Listado de estudiantes: "+nl);
+				List<Estudiantes2022> estudiantes = estudianteServicio.listarEstudiantes();
+				estudiantes.forEach((estudiante -> logger.info(estudiante.toString()+nl)));
+			}
+		}// Fin switch
+		return salir;
+	}
+
+	private void mostrarMenu() {
+		logger.info(nl);
+		logger.info("""
 					******** Sistema de Estudiantes ********
 					1. Listar Estudiantes
 					2. Buscar Estudiante
@@ -56,7 +73,5 @@ public class EstudiantesApplication implements CommandLineRunner {
 					5. Eliminar Estudiante
 					6. Salir
 					Eliga una opción:""");
-		}
-
 	}
 }

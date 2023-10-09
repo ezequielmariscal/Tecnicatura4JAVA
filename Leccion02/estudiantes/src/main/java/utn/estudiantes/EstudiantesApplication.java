@@ -114,13 +114,30 @@ public class EstudiantesApplication implements CommandLineRunner {
 					logger.info("Estudiante No encontrado con el id: "+ idEstudiante+nl);
 
 			}
+			case 5 -> {// Eliminar estudiante
+				logger.info("Eliminar estudiante: "+nl);
+				logger.info("Digite el id estudiante: ");
+				var idEstudiante = Integer.parseInt(consola.nextLine());
+				// Buscamos el id estudiante a eliminar
+				var estudiante = estudianteServicio.buscarEstudiantePorId(idEstudiante);
+				if (estudiante != null){
+					estudianteServicio.eliminarEstudiante(estudiante);
+					logger.info("Estudiante eliminado: "+estudiante+nl);
+				}
+				else
+					logger.info("Estudiante NO encontrado por id: "+estudiante+nl);
+			}
+			case 6 -> {// Salir
+				logger.info("Hasta pronto!"+nl+nl);
+				salir = true;
+			}
 
 		}// Fin switch
 		return salir;
 	}
 
 	private void mostrarMenu() {
-		logger.info(nl);
+		//logger.info(nl);
 		logger.info("""
 					******** Sistema de Estudiantes ********
 					1. Listar Estudiantes

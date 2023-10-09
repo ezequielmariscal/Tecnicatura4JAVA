@@ -125,7 +125,7 @@ public class EstudiantesApplication implements CommandLineRunner {
 					logger.info("Estudiante eliminado: "+estudiante+nl);
 				}
 				else
-					logger.info("Estudiante NO encontrado por id: "+estudiante+nl);
+					logger.info("Estudiante NO encontrado por id: "+idEstudiante+nl);
 			}
 			case 6 -> {// Salir
 				logger.info("Hasta pronto!"+nl+nl);

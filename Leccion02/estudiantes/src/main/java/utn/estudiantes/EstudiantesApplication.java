@@ -131,6 +131,7 @@ public class EstudiantesApplication implements CommandLineRunner {
 				logger.info("Hasta pronto!"+nl+nl);
 				salir = true;
 			}
+			default -> logger.info("Opcion no reconocida: "+ opcion+nl);
 
 		}// Fin switch
 		return salir;

@@ -57,6 +57,7 @@ public class LibroFrom extends JFrame {
                     libro.getPrecio(),
                     libro.getExistencias()
             };
+            this.tablaModeloLibros.addRow(renglonLibro);
         });
     }
 }

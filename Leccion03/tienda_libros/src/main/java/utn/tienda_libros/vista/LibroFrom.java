@@ -35,6 +35,10 @@ public class LibroFrom extends JFrame {
     }
 
     private void createUIComponents() {
-        // TODO: place custom component creation code here
+        this.tablaModeloLibros = new DefaultTableModel(0, 5);
+        String[] cabecera = {"id", "Libro", "Autor", "Precio", "Existencias"};
+        this.tablaModeloLibros.setColumnIdentifiers(cabecera);
+        // Instanciar el objeto de JTable
+        this.TablaLibros = new JTable(tablaModeloLibros);
     }
 }

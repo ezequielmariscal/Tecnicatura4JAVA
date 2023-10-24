@@ -20,6 +20,8 @@ public class LibroFrom extends JFrame {
     private JTextField precioTextoTextField;
     private JTextField existenciasTextoTextField;
     private JButton agregarButton;
+    private JButton modificarButton;
+    private JButton eliminarButton;
     private DefaultTableModel tablaModeloLibros;
 
     @Autowired

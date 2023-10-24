@@ -13,6 +13,10 @@ public class LibroFrom extends JFrame {
     LibroServicio libroServicio;
     private JPanel panel;
     private JTable TablaLibros;
+    private JTextField libroTextoTextField;
+    private JTextField autorTextoTextField;
+    private JTextField precioTextoTextField;
+    private JTextField existenciasTextoTextField;
     private DefaultTableModel tablaModeloLibros;
 
     @Autowired

@@ -2,6 +2,7 @@ package utn.tienda_libros.vista;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import utn.tienda_libros.modelo.Libro;
 import utn.tienda_libros.servicio.LibroServicio;
 
 import javax.swing.*;
@@ -45,11 +46,30 @@ public class LibroFrom extends JFrame {
         int y = (tamanioPantalla.height - getHeight()/2);
         setLocation(x, y);
     }
+
     private void agregarLibro(){
         // Leer los valores del formulario
-        if(libroTexto.getText().equals("")){
-            mostrarMensaje("Ingresa el nombre del libro")
+
+        if(libroTextoTextField.getText().equals("")){
+            mostrarMensaje("Ingresa el nombre del libro");
+            libroTextoTextField.requestFocusInWindow();
+            return;
         }
+        var nombreLibro = libroTextoTextField.getText();
+        var autor = autorTextoTextField.getText();
+        var precio = Double.parseDouble(precioTextoTextField.getText());// hay q paresearlo porq es de otro tipo de dato
+        var existencias = Integer.parseInt(existenciasTextoTextField.getText());
+        // Creamos el objeto libro
+        var libro = new Libro();
+        libro.setNombreLibro(nombreLibro);
+        libro.setAutor(autor);
+        libro.setPrecio(precio);
+        libro.setExistencias(existencias);
+
+    }
+
+    private void mostrarMensaje(String mensaje){
+        JOptionPane.showMessageDialog(this, mensaje);
     }
 
 

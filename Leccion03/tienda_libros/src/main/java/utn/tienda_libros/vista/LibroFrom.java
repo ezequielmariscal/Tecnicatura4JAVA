@@ -90,6 +90,15 @@ public class LibroFrom extends JFrame {
         var renglon = TablaLibros.getSelectedRow();
         if(renglon != -1){
             String idLibro = TablaLibros.getModel().getValueAt(renglon, 0).toString();
+            idTexto.setText(idLibro);
+            String nombreLibro = TablaLibros.getModel().getValueAt(renglon, 1).toString();
+            libroTexto.setText(nombreLibro);
+            String autor = TablaLibros.getModel().getValueAt(renglon, 2).toString();
+            autorTexto.setText(autor);
+            String precio = TablaLibros.getModel().getValueAt(renglon, 3).toString();
+            precioTexto.setText(precio);
+            String existencias = TablaLibros.getModel().getValueAt(renglon, 4).toString();
+            existenciasTexto.setText(existencias);
         }
     }
 

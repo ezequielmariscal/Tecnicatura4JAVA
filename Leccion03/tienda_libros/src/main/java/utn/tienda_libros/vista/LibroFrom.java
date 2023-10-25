@@ -10,6 +10,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 @Component
 public class LibroFrom extends JFrame {
@@ -30,6 +32,13 @@ public class LibroFrom extends JFrame {
         this.libroServicio = libroServicio;
         iniciarForma();
         agregarButton.addActionListener(e -> agregarLibro());
+        TablaLibros.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                cargarLibroSeleccionado();
+            }
+        });
     }
 
     private void iniciarForma(){
@@ -60,7 +69,7 @@ public class LibroFrom extends JFrame {
 
         // Creamos el objeto libro
 
-        var libro = new Libro(null, nombreLibro, autor, precio, existencias);
+        var libro = new Libro();
         // otra forma de hacerlo es el codigo de abajo de las prox 4 lineas
 
         libro.setNombreLibro(nombreLibro);
@@ -74,6 +83,12 @@ public class LibroFrom extends JFrame {
         listarLibros();
 
     }
+
+    private void cargarLibroSeleccionado(){
+        // Los indices de las columnas comienzan en cero
+        
+    }
+
     private void limpiarFormulario(){
         libroTexto.setText("");
         autorTexto.setText("");

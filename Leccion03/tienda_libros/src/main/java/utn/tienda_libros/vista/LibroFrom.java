@@ -18,6 +18,7 @@ public class LibroFrom extends JFrame {
     LibroServicio libroServicio;
     private JPanel panel;
     private JTable TablaLibros;
+    private JTextField idTexto;
     private JTextField libroTexto;
     private JTextField autorTexto;
     private JTextField precioTexto;
@@ -86,7 +87,10 @@ public class LibroFrom extends JFrame {
 
     private void cargarLibroSeleccionado(){
         // Los indices de las columnas comienzan en cero
-        
+        var renglon = TablaLibros.getSelectedRow();
+        if(renglon != -1){
+            String idLibro = TablaLibros.getModel().getValueAt(renglon, 0).toString();
+        }
     }
 
     private void limpiarFormulario(){
@@ -102,8 +106,10 @@ public class LibroFrom extends JFrame {
 
 
     private void createUIComponents() {
+        idTexto = new JTextField("");
+        idTexto.setVisible(false);
         this.tablaModeloLibros = new DefaultTableModel(0, 5);
-        String[] cabecera = {"id", "Libro", "Autor", "Precio", "Existencias"};
+        String[] cabecera = {"Id", "Libro", "Autor", "Precio", "Existencias"};
         this.tablaModeloLibros.setColumnIdentifiers(cabecera);
         // Instanciar el objeto de JTable
         this.TablaLibros = new JTable(tablaModeloLibros);

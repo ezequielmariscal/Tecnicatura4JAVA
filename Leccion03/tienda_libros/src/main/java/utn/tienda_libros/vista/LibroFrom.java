@@ -40,6 +40,9 @@ public class LibroFrom extends JFrame {
                 cargarLibroSeleccionado();
             }
         });
+        modificarButton.addActionListener(e -> modificarLibro());
+
+
     }
 
     private void iniciarForma(){
@@ -99,6 +102,21 @@ public class LibroFrom extends JFrame {
             precioTexto.setText(precio);
             String existencias = TablaLibros.getModel().getValueAt(renglon, 4).toString();
             existenciasTexto.setText(existencias);
+        }
+    }
+
+    private void modificarLibro(){
+        if(this.idTexto.equals("")){
+            mostrarMensaje("Debe seleccionar un registro en la tabla");
+        }
+        else {
+            // Verificamos que el nombre del libro no es nulo
+            if(libroTexto.getText().equals("")){
+                mostrarMensaje("Digite el nombre del libro...");
+                libroTexto.requestFocusInWindow();
+                return;
+            }
+            
         }
     }
 
